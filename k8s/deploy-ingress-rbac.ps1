@@ -6,6 +6,7 @@ kubectl apply -f nginx-ingress\default-backend.yaml
 kubectl apply -f nginx-ingress\configmap.yaml 
 kubectl apply -f nginx-ingress\tcp-services-configmap.yaml
 kubectl apply -f nginx-ingress\udp-services-configmap.yaml
+kubectl apply -f nginx-ingress\rbac.yaml
 kubectl apply -f nginx-ingress\with-rbac.yaml
 
 
