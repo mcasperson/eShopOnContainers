@@ -1,8 +1,10 @@
+---
+
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: nginx-ingress-controller
-  namespace: ingress-nginx
+  namespace: ingress-nginx 
 spec:
   replicas: 1
   selector:
@@ -62,4 +64,4 @@ spec:
             successThreshold: 1
             timeoutSeconds: 1
           securityContext:
-runAsNonRoot: false
+            runAsNonRoot: false
