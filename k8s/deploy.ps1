@@ -4,6 +4,7 @@ Param(
     [parameter(Mandatory=$false)][string]$dockerPassword,
     [parameter(Mandatory=$false)][string]$execPath,
     [parameter(Mandatory=$false)][string]$kubeconfigPath,
+    [parameter(Mandatory=$false)][string]$kubeconfigFilename="config",
     [parameter(Mandatory=$true)][string]$configFile,
     [parameter(Mandatory=$false)][string]$imageTag,
     [parameter(Mandatory=$false)][bool]$deployCI=$false,
@@ -15,7 +16,7 @@ Param(
 
 function ExecKube($cmd) {    
     if($deployCI) {
-        $kubeconfig = $kubeconfigPath + 'config';
+        $kubeconfig = $kubeconfigPath + $kubeconfigFilename;
         $exp = $execPath + 'kubectl ' + $cmd + ' --kubeconfig=' + $kubeconfig
         Invoke-Expression $exp
     }
